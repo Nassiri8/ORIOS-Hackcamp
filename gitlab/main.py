@@ -7,6 +7,7 @@ from get_links import *
 from session import *
 from comment import *
 from inject import *
+from BrokenAuthentification import *
 
 class Scan:
     def startCookie(self):
@@ -27,7 +28,6 @@ class Scan:
         }
         while i < len(link):
             if session.cookiePHP(link[i]) is not None:
-                print(link[i])
                 url.append(link[i])
                 token = session.cookiePHP(link[i])
                 tokens.append(token)
@@ -101,16 +101,34 @@ class Scan:
             i += 1
         return dictionnary
 
+    def startBroken(self):
+        testlog = TestLog()
+        dico = testlog.Launch()
+        return dico
+
 
 def main():
     scan = Scan()
+    print("Cookie analyse ...")
     data = scan.startCookie()
-    data1 = scan.startComment()
-    data2 = scan.startXSS()
-    data3 = scan.startInject()
-    array = []
-    array.append(data) 
-    array.append(data1)
-    array.append(data2)
-    array.append(data3)
-    return array
+    print('done')
+    print('Comment bot analyse ...')
+    Comment = scan.startComment()
+    print('done')
+    print('XSS injection analyse ...')
+    xss = scan.startXSS()
+    print('done')
+    print('SQL Injection analyse ...')
+    injection = scan.startInject()
+    print('done')
+    print('Broken Authentification analyse ...')
+    broken = scan.startBroken()
+    dictionnaries = []
+    dictionnaries.append(data) 
+    dictionnaries.append(Comment)
+    dictionnaries.append(xss)
+    dictionnaries.append(injection)
+    dictionnaries.append(broken)
+    return dictionnaries
+
+print(main())

@@ -36,8 +36,7 @@ class TestLog():
         return False
 
     def Launch(self):
-        if testlog.readfiles() == True:
-            print (self.make_pdf())
+        if self.readfiles() == True:
             return (self.make_pdf())
         else: 
             pass
@@ -54,6 +53,3 @@ class TestLog():
             }
         }
         return dictionnaire
-
-testlog = TestLog()
-testlog.Launch()
