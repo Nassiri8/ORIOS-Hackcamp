@@ -8,8 +8,14 @@ from session import *
 from comment import *
 from inject import *
 from BrokenAuthentification import *
+from data_html import data_to_html
 
 class Scan:
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    ENDC = '\033[0m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
     def startCookie(self):
         Getlinks = Get_Link()
         session = Session()
@@ -43,7 +49,7 @@ class Scan:
         url = []
 
         dictionnary = {
-            'Boot SPAM BDD': {
+            'Bot can SPAM BDD': {
                 'data': {
                     'url': url,
                     'msg': 'Le site est vulnérable à la faille A7 Cross-Site Scripting (XSS) dans les commentaires',
@@ -109,19 +115,20 @@ class Scan:
 
 def main():
     scan = Scan()
-    print("Cookie analyse ...")
+    print(scan.OKBLUE + "Cookie analysis ..." + scan.ENDC)
     data = scan.startCookie()
-    print('done')
-    print('Comment bot analyse ...')
+    print(scan.OKGREEN + 'Done' + scan.ENDC)
+    print(scan.OKBLUE + 'Comment bot analysis ...' + scan.ENDC)
     Comment = scan.startComment()
-    print('done')
-    print('XSS injection analyse ...')
+    print(scan.OKGREEN + 'Done' + scan.ENDC)
+    print(scan.OKBLUE + 'XSS injection analysis ...' + scan.ENDC)
     xss = scan.startXSS()
-    print('done')
-    print('SQL Injection analyse ...')
+    print(scan.OKGREEN + 'Done' + scan.ENDC)
+    print(scan.OKBLUE + 'SQL Injection analysis ...' + scan.ENDC)
     injection = scan.startInject()
-    print('done')
-    print('Broken Authentification analyse ...')
+    print(scan.OKGREEN + 'Done' + scan.ENDC)
+    print(scan.OKBLUE +'Broken Authentification analysis ...' + scan.ENDC)
+    print(scan.OKGREEN + 'Done' + scan.ENDC)
     broken = scan.startBroken()
     dictionnaries = []
     dictionnaries.append(data) 
@@ -129,6 +136,9 @@ def main():
     dictionnaries.append(xss)
     dictionnaries.append(injection)
     dictionnaries.append(broken)
+    print ("\n")
+    print (scan.FAIL + "PDF has been generated" + scan.ENDC)
+    data_to_html(dictionnaries)
     return dictionnaries
 
-print(main())
+main()

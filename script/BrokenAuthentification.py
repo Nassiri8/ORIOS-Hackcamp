@@ -24,7 +24,7 @@ class TestLog():
                 return True
             else:
                 self.count += 1
-                printProgressBar(self.count, 3000, prefix = 'Progress:', suffix = 'Complete', length = 35)
+                printProgressBar(self.count, 3000, prefix = 'Testing Passwords:', suffix = 'Complete', length = 35)
                 return False
 
     def readfiles(self):

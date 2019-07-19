@@ -1,0 +1,15 @@
+<!doctype html>
+            <html lang="en">
+
+            <head>
+            <!-- style CSS -->
+                <link rel="stylesheet" href="style.css">
+                <title>SDC HACK - ORIOS</title>
+            </head>
+            <body>
+            <div>
+                <h1>Voici le rapport des vunérabilités présente sur votre site</h1>
+            </div> 
+            <h3>PHPSESSID</h3><table><tr><th scope="col">url</th><th scope="col">tokens</th><th scope="col">msg</th></tr><tr><td scope="row"><br>http://orios.louisviallon.fr/commentaires.php</br><br>http://orios.louisviallon.fr/upload.php</br><br>http://orios.louisviallon.fr/login.php</br></td><td scope="row"><br>033d8229cdff7bdeb7010d6c25720e65</br><br>e7fe88782dd6951b499bbbe1f7c16c92</br><br>d92c9fda5bd42ac411628fe44f0a28d8</br></td><th scope="row">Récupère le token de session</th></tr></table><h3>Bot can SPAM BDD</h3><table><tr><th scope="col">url</th><th scope="col">msg</th></tr><tr><td scope="row"><br>http://orios.louisviallon.fr/commentaires.php</br></td><th scope="row">Le site est vulnérable à la faille A7 Cross-Site Scripting (XSS) dans les commentaires</th></tr></table><h3>XSS</h3><table><tr><th scope="col">url</th><th scope="col">msg</th></tr><tr><td scope="row"><br>http://orios.louisviallon.fr/commentaires.php</br></td><th scope="row">Le site est vulnérable à la faille A7 Cross-Site Scripting (XSS)</th></tr></table><h3>Injection SQL</h3><table><tr><th scope="col">url</th><th scope="col">msg</th></tr><tr><td scope="row"><br>http://orios.louisviallon.fr/login.php</br></td><th scope="row">Le site est vulnérable à la faille injection SQL dans la partie login (marcel" OR 1=1#)</th></tr></table><h3>Broken Authentification</h3><table><tr><th scope="col">url</th><th scope="col">msg</th><th scope="col">username</th><th scope="col">password</th></tr><tr><th scope="row">http://orios.louisviallon.fr/login.php</th><th scope="row">Le site est vulnérable à la faille A2 Broken Authentification</th><th scope="row">admin</th><th scope="row">azerty</th></tr></table>
+            </body>
+        </html>
