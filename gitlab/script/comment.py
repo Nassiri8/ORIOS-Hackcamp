@@ -1,5 +1,6 @@
 import requests
 import time
+from progessbar import printProgressBar
 
 class Comment:
     def postToComment(self, targetURL):
@@ -12,6 +13,7 @@ class Comment:
 
         i = 0
         while i < 10:
+            printProgressBar(i, 10, prefix = 'Progress:', suffix = 'Complete', length = 35)
             result = requests.post(targetURL, data)
             time.sleep(1)
             i += 1
